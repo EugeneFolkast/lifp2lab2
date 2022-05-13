@@ -1,41 +1,15 @@
-from controller import Controller
+from user import User
+from worker import Worker
 
-controller = Controller()
+user = User()
+worker = Worker()
 
-
-def user():
-    while True:
-        res = input('1: Выбор даты поездки \n'
-                    '2: Выбор направления поездки\n'
-                    '3: Выбор времени отправления\n'
-                    '4: Выбор типа поезда\n'
-                    '5: Выбор класса поезда\n'
-                    '6: Выбор места\n'
-                    '7: Сформировать билет\n')
-
-        if res == '1':
-            pass
-        elif res == '2':
-            pass
-        elif res == '3':
-            pass
-        elif res == '4':
-            pass
-        elif res == '5':
-            pass
-        elif res == '6':
-            pass
-        elif res == '7':
-            pass
-        else: print('Неправильный ввод, повторите попытку!')
-
-
-def login(input: str):
+def login(input):
     if input == '1':
-        pass
+        user.user()
 
     elif input == '2':
-        pass
+        worker.worker()
 
     elif input == '3':
         return -1
@@ -43,13 +17,19 @@ def login(input: str):
 
 if __name__ == '__main__':
     while True:
-        message = input('В какой интерфейс хотели бы войти?\n '
+        message = input('В какой интерфейс хотели бы войти?\n'
               '1: Пользователь\n'
               '2: Работник\n'
               '3: Выход\n\n'
               'Для выбора - введите число\n')
 
+        if message == '3' or message == 'выход':
+            break
+
         login_profile = login(message)
+
+        if login_profile == -1:
+            break
 
 
 
